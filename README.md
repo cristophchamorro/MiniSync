@@ -59,6 +59,7 @@ closedir(), stat() y lstat()).
 
 ./minisync <directorio_origen> <directorio_backup> [num_workers]
 
+- Hay que aclarar que para el directorio_backup, se debe usar mkdir para crearlo o asignar el directorio que se quiera
 - directorio_origen: es la carpeta que se quiere sincronizar
 - directorio_backup: es la carpeta destino donde se copian los archivos
 - num_workers: es la cantidad de procesos worker, por defecto se usan 2
