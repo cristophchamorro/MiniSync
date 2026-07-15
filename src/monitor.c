@@ -10,7 +10,7 @@
 #include <sys/mman.h>
 #include "../include/ipc.h"
 #include "../include/worker.h"
-#include "../include/escaner.h"
+#include "../include/scanner.h"
 #include "../include/logger.h"
 
 struct estadisticas *g_estadisticas_shm;
