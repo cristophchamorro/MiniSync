@@ -1,6 +1,8 @@
-CC = gcc
+C = gcc
 CFLAGS = -Wall -Wextra -O2 -I./include
 LDFLAGS = -lrt -lpthread
+TARGET_DAEMON = minisync
+TARGET_SCAN = scan
 TARGET_DAEMON = minisync
 TARGET_SCAN = scan
 

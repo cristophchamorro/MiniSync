@@ -8,11 +8,11 @@
 #include <limits.h>
 
 void imprimir_permisos(mode_t modo) {
-    printf("%c%c%c%c%c%c%c%c%c%c",
-        S_ISDIR(modo) ? 'd' : S_ISLNK(modo) ? 'l' : '-',
-        (modo & S_IRUSR) ? 'r' : '-', (modo & S_IWUSR) ? 'w' : '-', (modo & S_IXUSR) ? 'x' : '-',
-        (modo & S_IRGRP) ? 'r' : '-', (modo & S_IWGRP) ? 'w' : '-', (modo & S_IXGRP) ? 'x' : '-',
-        (modo & S_IROTH) ? 'r' : '-', (modo & S_IWOTH) ? 'w' : '-', (modo & S_IXOTH) ? 'x' : '-');
+	printf("%c%c%c%c%c%c%c%c%c%c",
+			S_ISDIR(modo) ? 'd' : S_ISLNK(modo) ? 'l' : '-',
+			(modo & S_IRUSR) ? 'r' : '-', (modo & S_IWUSR) ? 'w' : '-', (modo & S_IXUSR) ? 'x' : '-',
+			(modo & S_IRGRP) ? 'r' : '-', (modo & S_IWGRP) ? 'w' : '-', (modo & S_IXGRP) ? 'x' : '-',
+			(modo & S_IROTH) ? 'r' : '-', (modo & S_IWOTH) ? 'w' : '-', (modo & S_IXOTH) ? 'x' : '-');
 }
 
 void escanear_dir(const char *ruta_dir) {
