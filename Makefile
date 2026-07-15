@@ -4,7 +4,7 @@ LDFLAGS = -lrt -lpthread
 TARGET_DAEMON = minisync
 TARGET_SCAN = scan
 
-SRC_DAEMON = src/monitor.c src/worker.c src/escaner.c src/logger.c src/ipc.c
+SRC_DAEMON = src/monitor.c src/worker.c src/scanner.c src/logger.c src/ipc.c
 OBJ_DAEMON = $(SRC_DAEMON:.c=.o)
 
 SRC_SCAN = src/scan.c
