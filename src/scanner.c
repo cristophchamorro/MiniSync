@@ -8,19 +8,10 @@
 #include <time.h>
 
 /*
- *  * Sincronizacion incremental:
- *   * Para cada archivo del origen, comparamos su tamano y fecha de modificacion
- *    * directamente contra el archivo ya existente en el directorio de backup
- *     * (en vez de mantener un registro en memoria del escaneo anterior).
- *      *
- *       * Si el backup no existe, o el tamano cambio, o el origen es mas reciente
- *        * que el backup -> se envia COPIAR.
- *         * Si el backup existe, mismo tamano y el origen no es mas reciente -> se omite.
- *          *
- *           * Ventaja sobre un registro en memoria: no se duplican ni se pierden entradas,
- *            * y sigue funcionando correctamente aunque el monitor se reinicie (el estado
- *             * "real" vive en el propio directorio backup, no en una variable del proceso).
- *              */
+ * Sincronizacion incremental:
+ * Para cada archivo del directorio origen, se compara su tamaio y fecha de modificación
+ * directamente con el archivo ya existente en el directorio de backup
+ */
 void escanear_directorio_sync(const char *ruta_dir, const char *dir_backup, int *pipes_trabajadores, int *trabajador_actual, int num_trabajadores) {
 	DIR *dir = opendir(ruta_dir);
 	if (!dir) return;
