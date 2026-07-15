@@ -1,4 +1,4 @@
-##Mini Sistema de Sincronizacion de Archivos
+## Mini Sistema de Sincronizacion de Archivos
 
 Este proyecto es una version simple de un servicio de sincronizacion tipo Dropbox, 
 que es hecho en C. La lógica del proyecto es que un proceso monitor está 
@@ -6,7 +6,7 @@ atento a un directorio, detecta que archivos han cambiado y para copiarlos
 reparte este trabajo entre algunos procesos worker, usando pipes, 
 memoria compartida, semáforos y un proceso logger independiente.
 
-##ESTRUCTURA DEL PROYECTO
+## ESTRUCTURA DEL PROYECTO
 
 Dentro de la carpeta MiniSync se encuentran dos subcarpetas:
 
@@ -47,15 +47,15 @@ make clean
 
 ## COMO USARLO
 
-### 1. Comando `scan`
+### 1. Comando scan
 
 Recorre un directorio recursivamente e imprime nombre, número de i-nodo,
 tamaño, permisos y fecha de modificación de cada archivo (usando readdir(),
 closedir(), stat() y lstat()).
 
-./scan <directorio>
+./scan directorio
 
-### 2. Daemon `minisync`
+### 2. Daemon minisync
 
 ./minisync <directorio_origen> <directorio_backup> [num_workers]
 
@@ -73,7 +73,7 @@ asi que después de ejecutarlo, el proceso sigue corriendo en segundo plano.
   backup. Si el archivo no existe en el backup, hubo cambio de tamaño, o el 
   origen es más nuevo, se manda a copiar.
 - Las tareas se reparten entre los workers mediante pipes
-  (usando pipe() + fork()), con mensajes tipo COPIAR <ruta>.
+  (usando pipe() + fork()), con mensajes tipo COPIAR '<ruta>'.
 - Cada worker copia el archivo usando open(), read() y write()
   (mediante la función copiarArchivo()), actualiza una estructura de estadisticas en
   memoria compartida (para esto se usa shm_open() + mmap()), la cúal está protegida 
@@ -100,7 +100,7 @@ Ya que minisync corre como daemon, no se detiene con Ctrl+C desde otra
 terminal. Hay que buscar el PID y mandarle la señal:
 
  - pgrep minisync
- - kill <pid>
+ - kill '<pid>'
 
 Al recibir SIGTERM o SIGINT, el monitor mata a los workers y al logger,
 libera la memoria compartida, cierra el semaforo y borra el FIFO
