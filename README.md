@@ -30,7 +30,7 @@ Aparte se tiene el Makefile, donde están todos los comandos para compilar y eje
 Para este proyectoes necesario:
 - Linux
 - gcc
-- Librerias `-lrt -lpthread` (para la memoria compartida POSIX y semaforos)
+- Librerias -lrt -lpthread (para la memoria compartida POSIX y semaforos)
 
 ## COMPILAR
 
@@ -73,7 +73,7 @@ asi que después de ejecutarlo, el proceso sigue corriendo en segundo plano.
   backup. Si el archivo no existe en el backup, hubo cambio de tamaño, o el 
   origen es más nuevo, se manda a copiar.
 - Las tareas se reparten entre los workers mediante pipes
-  (usando pipe() + fork()), con mensajes tipo COPIAR '<ruta>'.
+  (usando pipe() + fork()), con mensajes tipo COPIAR ruta.
 - Cada worker copia el archivo usando open(), read() y write()
   (mediante la función copiarArchivo()), actualiza una estructura de estadisticas en
   memoria compartida (para esto se usa shm_open() + mmap()), la cúal está protegida 
@@ -89,10 +89,10 @@ asi que después de ejecutarlo, el proceso sigue corriendo en segundo plano.
 
  Archivo:
 
-- `/tmp/sync_logger_fifo` -> FIFO usado por monitor/workers -> logger 
-- `/tmp/minisync.log` -> log de eventos (archivos copiados) 
-- `/tmp/minisync_stats.log` -> estadisticas actuales (archivos, bytes, errores) 
-- `/dev/shm/sync_shm_stats` -> memoria compartida con la estructura de estadisticas 
+- /tmp/sync_logger_fifo -> FIFO usado por monitor/workers -> logger 
+- /tmp/minisync.log -> log de eventos (archivos copiados) 
+- /tmp/minisync_stats.log -> estadisticas actuales (archivos, bytes, errores) 
+- /dev/shm/sync_shm_stats -> memoria compartida con la estructura de estadisticas 
 
 ## COMO DETENER DAEMON
 
@@ -100,7 +100,7 @@ Ya que minisync corre como daemon, no se detiene con Ctrl+C desde otra
 terminal. Hay que buscar el PID y mandarle la señal:
 
  - pgrep minisync
- - kill '<pid>'
+ - kill pid
 
 Al recibir SIGTERM o SIGINT, el monitor mata a los workers y al logger,
 libera la memoria compartida, cierra el semaforo y borra el FIFO
