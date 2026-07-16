@@ -10,14 +10,14 @@ memoria compartida, semáforos y un proceso logger independiente.
 
 Dentro de la carpeta MiniSync se encuentran dos subcarpetas:
 
-include: Dentro de esta carpeta se guardan todos los archivos .h
-Estos archivos se usan para declarar estructuras y métodos necesarios para la implementación 
+- include: Dentro de esta carpeta se guardan todos los archivos .h. Estos archivos se usan para declarar estructuras y métodos necesarios para la implementación 
 - scanner.h
 - ipc.h
 - logger.h
 - worker.h 
-src: Dentro de esta carpeta se guardan todos los archivos .c
-Estos archivos llaman a los .h para usar los métodos o estructuras ya declaradas
+
+- src: Dentro de esta carpeta se guardan todos los archivos .c. Estos archivos llaman a los .h para usar los métodos o estructuras ya declaradas
+
 - scanner.c - archivo que implementa la lógica para el recorrido recursivo y la sincronización incremental
 - ipc.c - archivo que implementa la lógica de memoria compartida y semáforos
 - logger.c - es el proceso independiente llamado Logger, es elque lee del FIFO
